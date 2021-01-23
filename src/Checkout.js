@@ -1,6 +1,6 @@
 import react from 'react';
 import './checkout.css';
-
+import Subtotal from './subtotal';
 import {BrowserRouter as Router ,Switch ,Route} from "react-router-dom";
 
 function Checkout() {
@@ -12,12 +12,12 @@ function Checkout() {
          <div className="checkout_left">
             
         
-         <div>
+         <div className="checkout_title">
              <h2>Your Shopping Basket</h2>
          </div>
          </div>
          <div className="checkout_right">
-             <h2>subtotal will go here</h2>
+             <Subtotal/>
          </div>
          </div>
     </div>
