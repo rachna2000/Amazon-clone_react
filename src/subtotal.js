@@ -3,6 +3,7 @@ import './subtotal.css';
 import CurrencyFormat from 'react-currency-format';
 import {BrowserRouter as Router ,Switch ,Route} from "react-router-dom";
 import { useStateValue } from './StateProvider';
+import { getBasketTotal } from "./reducer";
 function Subtotal() {
   const [ {basket},dispatch]=useStateValue();
   
@@ -13,15 +14,15 @@ function Subtotal() {
                 <>
              
                     <p>Subtotal({basket?.length} items):<strong>
-                        0</strong></p>
+                        {value}</strong></p>
                     <small className="subtotal_gift"><input type="checkbox"/>This order contains a gift</small>
                </>
             )}
             decimalScale={2}
-            value={0}
+            value={getBasketTotal(basket)}
             displayType={"text"}
             thosandSeperator={true}
-            prefix={"₹"}
+            prefix={"$"}
             >
         </CurrencyFormat>
         <button>Proceed to Checkout</button>
